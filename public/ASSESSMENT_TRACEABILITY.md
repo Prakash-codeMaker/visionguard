@@ -24,7 +24,7 @@
 | Batch analysis | Up to 20 images + CSV | `/api/v1/analyze/batch` | [PASS] |
 | Model versioning | `quality-v2.0` + persisted version | `/api/v1/model`, `analyses` | [PASS] |
 | Automated tests | 17 assertions | `/api/v1/self-test` | [PASS] |
-| Performance timing | Per-analysis processing time | Analyze response/DB | [PASS] |
+| Performance timing | Per-analysis processing time; single and batch smoke timings observed | Analyze response/DB and closure smoke tests | [PARTIAL] |
 | Logging | Structured success/failure events | API/lib logging | [PASS] |
 | Docker | Portable architecture only | README / audit | [PARTIAL] |
 | CI/CD | Not available in Hatchable root filesystem | Audit | [PARTIAL] |

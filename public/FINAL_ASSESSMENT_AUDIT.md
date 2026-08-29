@@ -53,7 +53,7 @@ Source of truth: the attached Software Internship Technical Assessment.
 | Confidence calibration / uncertainty | [PARTIAL] | Entropy-based uncertainty and manual-review recommendation exist; probabilities are not calibrated. Calibration requires a held-out calibration procedure. |
 | Model versioning | [PASS] | `quality-v2.0` in model endpoint, artifact and persisted analyses. |
 | Automated tests | [PASS] | Owner-only self-test, 17/17 verified in closure pass. |
-| Performance optimization | [PASS] | Static model loading, capped browser dimensions, shared feature extraction; processing time is persisted. |
+| Performance optimization | [PARTIAL] | Static model loading, capped browser dimensions, shared feature extraction, and persisted processing time are implemented. Representative single-image and batch smoke timings were observed, but a formal multi-run median benchmark is not established. |
 | CI/CD | [PARTIAL] | CI workflow is not executable inside Hatchable because root `.github/workflows` is unavailable. External repository is required. |
 | Monitoring/logging | [PASS] | Structured completion/failure logging and processing time. |
 
