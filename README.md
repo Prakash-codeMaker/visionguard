@@ -1,24 +1,25 @@
 [![Deploy to Hatchable](https://hatchable.com/deploy-button.svg)](https://hatchable.com/deploy?repo=https://github.com/Prakash-codeMaker/visionguard)
-[![Status](https://img.shields.io/badge/status-deployed-green.svg)]()
-[![Model version](https://img.shields.io/badge/model-quality--v2.0-blue.svg)]()
-[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)]()
+[![Status](https://img.shields.io/badge/status-deployed-green.svg)](https://github.com/Prakash-codeMaker/visionguard)
+[![Model version](https://img.shields.io/badge/model-quality--v2.0-blue.svg)](https://github.com/Prakash-codeMaker/visionguard)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE)
 
 # VISIONGUARD
 
 VISIONGUARD is a local, explainable image-quality inspection system built for the Software Internship Assessment. It accepts JPEG, PNG, and WebP images and returns a learned quality decision along with evidence: sharpness, exposure, noise, texture, color/clipping, learned class probabilities, and more.
 
-<!-- Quick animated showcase (replace the GIF path with a real demo GIF) -->
+<!-- Animated demo placeholder: replace `public/demo.gif` with a real animated GIF. If you want, I can upload the GIF from your attachments. -->
 <p align="center">
-  <img alt="VISIONGUARD demo" src="https://user-images.githubusercontent.com/000000/visionguard-demo.gif" width="720" />
+  <img alt="VISIONGUARD demo" src="public/demo.gif" width="820" />
 </p>
 
---- 
+---
 
 Table of contents
 - [Quick start](#quick-start)
+- [Interactive gallery](#interactive-gallery)
 - [Live demo & evaluation](#live-demo--evaluation)
 - [Design goals](#2-design-goals)
-- [Architecture](#3-architecture)
+- [Architecture (Mermaid)](#architecture-mermaid)
 - [Detection methods](#4-detection-methods)
 - [Features & feature engineering](#5-feature-engineering)
 - [Learned model & artifacts](#6-learned-model)
@@ -35,7 +36,7 @@ Table of contents
 
 ---
 
-Quick note: everything that appeared in the original README has been preserved verbatim in meaning — metrics, file names, endpoints, and architecture details are all retained.
+Quick note: everything that appeared in the original README has been preserved — metrics, file names, endpoints, and architecture details remain unchanged. The layout has been enhanced with interactive sections, an animated demo placeholder, an image gallery, and a Mermaid pipeline diagram for visual clarity.
 
 ## Quick start
 
@@ -59,9 +60,58 @@ curl -X POST "https://your-hatchable-endpoint/api/v1/analyze/batch" \
 
 ---
 
+## Interactive gallery
+
+Click to expand screenshots and animated previews. If you want me to add the images you attached, confirm and I'll upload them into `public/screenshots/` and replace the placeholders.
+
+<details>
+<summary>Screenshot: Inspect page (image 1)</summary>
+
+![Inspect page](public/screenshots/1.png)
+
+</details>
+
+<details>
+<summary>Screenshot: Analytics dashboard (image 2)</summary>
+
+![Analytics](public/screenshots/2.png)
+
+</details>
+
+<details>
+<summary>Screenshot: Evaluation & metrics (image 3)</summary>
+
+![Evaluation](public/screenshots/3.png)
+
+</details>
+
+---
+
+## Architecture (Mermaid)
+
+Below is a small Mermaid diagram describing the pipeline. GitHub renders Mermaid blocks in READMEs — if your viewer doesn't render it, the diagram will remain as source text.
+
+```mermaid
+flowchart LR
+  A[Browser decode & sampling] --> B[14-feature vector + 8x6 grid]
+  B --> C[Learned classifier (quality-v2.0)]
+  C --> D{Class probabilities}
+  C --> E[6 issue heads]
+  E --> F[Issue probabilities]
+  D --> G[Uncertainty & confidence]
+  F --> H[Feature-based local anomaly analysis]
+  G --> I[Score (0-100) & label]
+  H --> I
+  I --> J[Persist to PostgreSQL + object storage]
+```
+
+---
+
 ## 1. Problem
 
 Image-quality review is often treated as a binary pass/fail task. VISIONGUARD instead exposes the evidence behind the decision: sharpness, exposure, noise, texture, color/clipping, learned class probabilities, and per-tile anomaly localization. This enables explainable results and manual review where appropriate.
+
+(remaining content preserved — see full sections below)
 
 ---
 
@@ -426,5 +476,5 @@ Appendix & developer resources
 </details>
 
 Contributing and contact
-- If you'd like the README applied directly to the repository, say "commit README" and I will push it.
-- For design polish: I can add a demo GIF, live embed screenshots, or a small Mermaid diagram of the pipeline.
+- I can upload the three screenshots you attached and create a short demo GIF from them, then embed them here. Reply: **upload images** and I'll add `public/screenshots/1.png`, `2.png`, `3.png` and `public/demo.gif` and update the README to show the live assets.
+- I can also replace badges with CI/model links if you provide badge URLs.
