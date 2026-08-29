@@ -1,3 +1,5 @@
+[![Deploy to Hatchable](https://hatchable.com/deploy-button.svg)](https://hatchable.com/deploy?repo=https://github.com/Prakash-codeMaker/visionguard)
+
 # VISIONGUARD
 
 VISIONGUARD is a local, explainable image-quality inspection system built for the Software Internship Assessment. It accepts JPEG, PNG, and WebP images and returns a learned quality decision: `ACCEPTABLE`, `DEGRADED`, or `DEFECTIVE`, together with issue probabilities, uncertainty, statistics, localization evidence, and an explanation.
