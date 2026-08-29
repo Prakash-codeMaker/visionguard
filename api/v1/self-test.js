@@ -1,0 +1,2 @@
+export const access='admin';
+import {runSelfTests} from 'lib/selfTest.js';export const methods=['GET'];export default async function(req,res){try{res.json(await runSelfTests())}catch(err){console.log(JSON.stringify({event:'self_test_failed',message:err?.message||String(err)}));res.status(500).json({error:'Self-test failed.'})}}

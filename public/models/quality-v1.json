@@ -1,0 +1,1 @@
+{"version":"quality-v1.0","classifier":"multinomial logistic regression + binary issue heads","feature_count":14,"trained_at":"2026-08-29T12:51:00.213Z","training":{"source_images":112,"variants_per_source":8,"seed":42024,"split":{"train_sources":112,"validation_sources":24,"test_sources":24}},"runtime_artifact":"lib/model.js"}

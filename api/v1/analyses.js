@@ -1,4 +1,4 @@
-import {db} from 'hatchable';
 export const access='public';
+import {db} from 'hatchable';
 export const methods=['GET'];
-export default async function(req,res){const {rows}=await db.query('SELECT id,created_at,filename,quality_score,quality_label,confidence,model_version,processing_time_ms FROM analyses ORDER BY created_at DESC LIMIT 100');res.json({items:rows})}
+export default async function(req,res){const {rows}=await db.query("SELECT id,created_at,filename,quality_score,quality_label,confidence,model_version,processing_time_ms,CASE WHEN defect_score>=0.5 THEN 'potential visual defect' WHEN corruption_score>=0.5 THEN 'severe degradation' WHEN blur_score>=0.5 THEN 'blur' WHEN underexposure_score>=0.5 THEN 'underexposure' WHEN overexposure_score>=0.5 THEN 'overexposure' WHEN noise_score>=0.5 THEN 'noise' ELSE '—' END AS top_issue FROM analyses ORDER BY created_at DESC LIMIT 100");res.json({items:rows})}

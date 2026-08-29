@@ -1,0 +1,2 @@
+export const access='public';
+import {getAnalysis} from 'lib/analyzeService.js';export const methods=['GET'];export default async function(req,res){try{const row=await getAnalysis(req.params.id);if(!row)return res.status(404).json({error:'Analysis not found.'});res.json(row)}catch(err){console.log(JSON.stringify({event:'analysis_lookup_failed',message:err?.message||String(err)}));res.status(500).json({error:'Could not retrieve analysis.'})}}

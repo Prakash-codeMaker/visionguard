@@ -1,0 +1,2 @@
+export const access='public';
+import {db,storage} from 'hatchable';export const methods=['GET'];export default async function(req,res){const r=await db.query('SELECT heatmap_storage_key FROM analyses WHERE id = $1',[req.params.id]);const key=r.rows[0]?.heatmap_storage_key;if(!key)return res.status(404).json({error:'Heatmap not found.'});res.json({heatmap_url:await storage.url(key)})}
