@@ -93,16 +93,16 @@ Below is a small Mermaid diagram describing the pipeline. GitHub renders Mermaid
 
 ```mermaid
 flowchart LR
-  A[Browser decode & sampling] --> B[14-feature vector + 8x6 grid]
-  B --> C[Learned classifier (quality-v2.0)]
-  C --> D{Class probabilities}
-  C --> E[6 issue heads]
-  E --> F[Issue probabilities]
-  D --> G[Uncertainty & confidence]
-  F --> H[Feature-based local anomaly analysis]
-  G --> I[Score (0-100) & label]
+  A[Browser decode and sampling] --> B[14 feature vector and 8x6 grid]
+  B --> C[Learned classifier quality_v2_0]
+  C --> D(Class_probabilities)
+  C --> E[Six_issue_heads]
+  E --> F[Issue_probabilities]
+  D --> G[Uncertainty_and_confidence]
+  F --> H[Feature_based_local_anomaly_analysis]
+  G --> I[Score_0_to_100_and_label]
   H --> I
-  I --> J[Persist to PostgreSQL + object storage]
+  I --> J[Persist_to_Postgres_and_object_storage]
 ```
 
 ---
