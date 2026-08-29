@@ -1,0 +1,4 @@
+export const access='public';
+import {db} from 'hatchable';
+export const methods=['GET'];
+export default async function(req,res){try{const r=await db.query(`SELECT a.id,a.inspection_number,a.created_at,a.filename,a.quality_score,a.quality_label,a.confidence,a.uncertainty,r.status review_status,r.reason,r.note FROM analyses a LEFT JOIN inspection_reviews r ON r.analysis_id=a.id WHERE (a.uncertainty>=0.44 OR a.quality_label IN ('DEGRADED','DEFECTIVE') OR r.status='flagged') AND coalesce(r.status,'unreviewed')<>'accepted' ORDER BY CASE WHEN r.status='flagged' THEN 0 ELSE 1 END,a.created_at DESC LIMIT 100`);res.json({items:r.rows})}catch(err){console.log(JSON.stringify({event:'review_queue_failed',message:err?.message||String(err)}));res.status(500).json({error:{code:'REVIEW_QUEUE_ERROR',message:'Could not load review queue.'}})}}
