@@ -155,9 +155,12 @@ The main measured weakness is recall for corruption and noise, plus boundary con
 
 Reports:
 
+- `/evaluation.html` — reviewer-facing live evaluation page
 - `public/reports/metrics.json`
 - `public/reports/confusion-matrix.json`
 - `public/reports/failure-cases.json`
+- `public/FINAL_ASSESSMENT_AUDIT.md`
+- `public/ASSESSMENT_TRACEABILITY.md`
 
 ## 9. Failure cases
 
@@ -263,7 +266,23 @@ Hatchable private object storage contains uploaded originals and generated heatm
 
 No persistent local runtime filesystem is required.
 
-## 18. Validation / security
+## 18. Deployment Architecture
+
+### Current deployed implementation
+
+- Frontend: static browser application served by Hatchable
+- Backend: Hatchable V8 JavaScript API functions
+- Database: PostgreSQL via Hatchable SDK
+- Object storage: Hatchable private storage
+- ML runtime: pure JavaScript / CPU
+
+### Portable equivalent architecture
+
+The assessment's preferred portable shape can be represented as React/frontend + FastAPI/backend + Python ML stack + PostgreSQL + Docker Compose. That architecture is documented as a portability target, not claimed as an executed environment in this Hatchable project.
+
+Hatchable does not expose the required arbitrary root-level Docker build/runtime or `.github/workflows` filesystem through the project write contract, so Docker/CI are documented limitations rather than falsely presented as tested artifacts.
+
+## 19. Validation / security
 
 The upload pipeline checks:
 
