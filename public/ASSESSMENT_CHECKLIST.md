@@ -111,7 +111,7 @@ Status key: `[PASS]` means implemented and directly evidenced. `[PARTIAL]` means
 - [PASS] Quality heatmap/localization.
 - [PASS] Uncertainty estimation.
 - [PASS] Model versioning.
-- [PASS] Automated owner-only self-test endpoint — latest direct run: 16/16 PASS.
+- [PASS] Automated owner-only self-test endpoint — latest direct run: 17/17 PASS.
 - [PASS] CPU-oriented inference / static model loading.
 - [PASS] Structured success/failure logging and processing time.
 - [PASS] No external AI/vision API in the image-quality decision path.

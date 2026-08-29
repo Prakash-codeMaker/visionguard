@@ -315,9 +315,9 @@ The model is loaded as a static module. Very large images are downsampled in the
 
 ## 22. Automated testing
 
-`GET /api/v1/self-test` currently runs 16 assertions covering feature extraction, model version, clean inference, all six issue sensitivities, probability normalization, uncertainty bounds, score consistency, local anomaly grid, heatmap generation, invalid uploads, unsupported types, and database connectivity.
+`GET /api/v1/self-test` currently runs 17 assertions covering feature extraction, model version, clean inference, all six issue sensitivities, probability normalization, uncertainty bounds, score consistency, local anomaly grid, heatmap generation, invalid uploads, unsupported types, and database connectivity.
 
-Latest direct run: **16/16 PASS**.
+Latest direct run: **17/17 PASS**.
 
 Route-level smoke tests are also executed directly through the Hatchable function runner during deployment verification.
 
