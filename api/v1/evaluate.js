@@ -1,0 +1,3 @@
+import {trainAndEvaluate} from 'lib/mlRuntime.js';
+export const access='public';
+export default async function(req,res){const t=Date.now();const r=trainAndEvaluate();res.json({model_version:r.model.version,dataset:r.dataset,validation:r.validation,test:r.test,training_ms:Date.now()-t,qualification:'Synthetic controlled evaluation executed in the Hatchable JavaScript runtime. This is not a natural-image benchmark.'});}
